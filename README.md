@@ -17,7 +17,7 @@ To install the React Application, follow these steps:
 1. Clone the repository and open it:
    ```bash
    git clone https://github.com/godricvasa/NotesApp.git
-  
+   
    cd <directory where u installed>
 
 
