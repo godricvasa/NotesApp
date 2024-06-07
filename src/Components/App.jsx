@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
+
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Notes";
@@ -10,7 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   function addNote(newNote) {
-    dispatch({ type: 'ADD_NOTE', payload: newNote });
+    dispatch({ type: 'ADD_NOTE', payload: { ...newNote, completed: false } });
   }
 
   function deleteNote(id) {
@@ -19,6 +20,10 @@ function App() {
 
   function editNote(id, updatedNote) {
     dispatch({ type: 'EDIT_NOTE', id, payload: updatedNote });
+  }
+
+  function toggleComplete(id) {
+    dispatch({ type: 'TOGGLE_COMPLETE', payload: id });
   }
 
   return (
@@ -32,8 +37,10 @@ function App() {
             id={index}
             title={noteItem.title}
             content={noteItem.content}
+            completed={noteItem.completed}
             onDelete={deleteNote}
             onEdit={editNote}
+            onToggle={toggleComplete}
           />
         );
       })}
