@@ -32,7 +32,7 @@ function Note(props) {
           <form className="create-note" onSubmit={handleEditSubmit}>
             <input className="create-note input" name="title" value={updatedNote.title} onChange={handleEditChange} />
             <textarea className="create-note textarea" name="content" value={updatedNote.content} onChange={handleEditChange} />
-            <button className="create-note button" type="submit">Update</button>
+            <button className="create-note button" type="submit"><FontAwesomeIcon icon={faCheck} /> </button>
           </form>
         ) : (
           <>
